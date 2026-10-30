@@ -1,0 +1,11 @@
+{
+  "name": "Python build",
+  "summary": "python -m build 出 sdist/wheel，可选 twine 上传（凭据走环境变量）。",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "python"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-python-build"
+}

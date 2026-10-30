@@ -1,0 +1,83 @@
+{
+  "atomCode": "python-build",
+  "name": "Python build",
+  "version": "1.0.0",
+  "description": "python -m build 出 sdist/wheel，可选 twine 上传（凭据走环境变量）。",
+  "execution": {
+    "packagePath": "python-build.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp python-build.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "python": {
+      "label": "解释器（留空用 PATH 里的 python3）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "wheel": {
+      "label": "构建 wheel",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "sdist": {
+      "label": "构建 sdist",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "distDir": {
+      "label": "产物目录",
+      "type": "vuex-input",
+      "default": "dist"
+    },
+    "upload": {
+      "label": "上传到包索引（twine）",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "repository": {
+      "label": "自定义 repository-url",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "pypiUser": {
+      "label": "TWINE_USERNAME（凭据 id）",
+      "type": "vuex-input",
+      "default": "",
+      "isSensitive": true
+    },
+    "pypiPassword": {
+      "label": "TWINE_PASSWORD（凭据 id）",
+      "type": "vuex-input",
+      "default": "",
+      "isSensitive": true
+    }
+  },
+  "output": {
+    "distDir": {
+      "type": "string",
+      "description": "产物目录"
+    },
+    "artifacts": {
+      "type": "string",
+      "description": "产物数量"
+    },
+    "uploaded": {
+      "type": "string",
+      "description": "是否上传"
+    },
+    "dist": {
+      "type": "artifact",
+      "description": "归档的产物目录"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    },
+    "secrets": {
+      "pypiUser": "",
+      "pypiPassword": ""
+    }
+  }
+}
