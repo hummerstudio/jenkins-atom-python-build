@@ -139,6 +139,9 @@ public class PythonBuildAtom implements AtomTask {
             }
             return new Result(process.waitFor(), output.toString());
         } catch (Exception e) {
+            if (e instanceof InterruptedException) {
+                Thread.currentThread().interrupt();
+            }
             return new Result(-1, String.valueOf(e));
         }
     }
