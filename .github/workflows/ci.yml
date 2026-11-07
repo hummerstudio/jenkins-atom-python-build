@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: python-build-atom
-          path: atom/dist/python-build/
+          path: atom/target/dist/python-build/
